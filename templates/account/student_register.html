@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form method="post" action="">
+    {% csrf_token %}
+<table class="table">
+                        <tr>
+
+                                <td><label for="fname">نام</label><br></td>
+                                <td id="fname">{{form.first_name}}</td>
+                        </tr>
+
+                        <tr>
+
+                                <td><label for="lname">نام خانوداگی</label><br></td>
+                                <td id="lname">{{form.last_name}}</td>
+                        </tr>
+
+                        <tr>
+
+                                <td><label for="user">نام کاربری</label><br></td>
+                                <td id="user">{{form.username}}</td>
+                        </tr>
+
+                        <tr>
+                                <td><label for="pass1">رمز عبور</label><br></td>
+                                <td id="pass1">{{form.password1}}</td>
+
+                        </tr>
+
+                        <tr>
+
+                                <td><label for="pass2"> تکرار رمز عبور</label><br></td>
+                                <td id="pass2">{{form.password2}}</td>
+                        </tr>
+                        <tr>
+                                <td><label for="email">پست الکترونیکی</label><br></td>
+                                <td id="email">{{form.email}}</td>
+
+                        </tr>
+                        <tr>
+                                <td><label for="phone">تلفن همراه</label><br></td>
+                                <td id="phone">{{form.phone}}</td>
+
+                        </tr>
+
+
+                </table>
+                        <input name="submit" type="submit" value="ایجاد کاربر جدید">
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<form action="" method="post">
+   {{ form|crispy}}
+    <a href="#">edit</a>
+</form>
+{% endblock %}

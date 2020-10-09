@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% with comments.count as total_comments %}
+<p>
+<h1>{{ consultant.user }}</h1>
+<h1>{{ consultant.user.email }}</h1>
+<h1>{{ consultant.interest_major}}</h1>
+<h1>{{ consultant.description}}</h1>
+</p>
+<h2>
+{{ total_comments }} دیدگاه
+</h2>
+{% endwith %}
+
+
+{% for comment in comments %}
+<div class="comment">
+<p class="info">
+دیدگاه {{ forloop.counter }} توسط {{ comment.name }}
+
+</p>
+{{ comment.body|linebreaks }}
+</div>
+{% empty %}
+<p>دیدگاهی وجود ندارد</p>
+{% endfor %}
+
+
+{% if new_comment %}
+<h2>دیدگاه شما پس از تائید ، نمایش داده می شود.</h2>
+{% else %}
+<h2>اضافه کردن دیدگاه جدید </h2>
+<form method="post">
+{{ comment_form|crispy}}
+{% csrf_token %}
+<p><input type="submit" value="Add comment"></p>
+</form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,64 @@
+{% load static %}
+<div class="navbar">
+            {% block navbar %}
+
+            <a href="{% url 'home' %}">صفحه اصلی</a>
+            <div class="dropdown">
+                <button class="dropbtn">مشاوران
+                <i class="fa fa-caret-down"></i>
+                    <a href="{% url 'bodies:consultant-view' %}"></a>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'bodies:consultant-view' %}">تخصصی هر رشته</a>
+                    <a href="#">بالینی </a>
+                    <a href="#">تحصیلی </a>
+                    <a href="#">خانواده</a>
+                </div>
+            </div>
+             <div class="dropdown">
+                <button class="dropbtn">دانشگاه ها
+                    <i class="fa fa-caret-down"></i>
+                    <a href="{% url 'bodies:university-view' %}"></a>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'bodies:university-view' %}">دولتی</a>
+                    <a href="#">غیرانتفاعی </a>
+                    <a href="#">پیام نور </a>
+                    <a href="#">آزاد</a>
+                </div>
+            </div>
+             <div class="dropdown">
+                <button class="dropbtn">رشته ها
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">ریاضی</a>
+                    <a href="#">تجربی </a>
+                    <a href="#">انسانی </a>
+                    <a href="#">فنی و حرفه ای </a>
+                    <a href="#">کار و دانش </a>
+                </div>
+            </div>
+            <a href="{% url 'bodies:contact' %}">ارتباط با ما </a>
+            <a href="{% url 'bodies:about' %}">درباره ما </a>
+                <div class="dropdown">
+                <button class="dropbtn">ورود/ثبت نام
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'account:login' %}">ورود</a>
+                    <a href="{% url 'account:consultant-register' %}">ثبت نام مشاور</a>
+                    <a href="{% url 'account:student-register' %}">ثبت نام دانش آموز </a>
+
+                </div>
+            </div>
+    {% if request.user.is_authenticated %}
+            <a href="{% url 'profiles:user-profile' %}">پروفایل من</a>
+    {% endif %}
+    <span><a href="{% url 'account:logout' %}">خروج</a></span>
+
+
+    <span style="float:left; color:white; margin:32px" class="hello">سلام {{ request.user.first_name }}</span>
+
+            {% endblock %}
+        </div>

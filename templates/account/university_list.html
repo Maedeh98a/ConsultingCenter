@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for uni in universities %}
+        <img src="{{ uni.photo.url }}" alt="{{ uni.university_name}}" width="200" height="200">
+        <p>{{ uni.university_name }} : نام دانشگاه  </p>
+        <p>{{ uni.university_city }} : شهر</p>
+        <!--use urlize for link outside websites-->
+        <p>"{{ uni.website|urlize }}": بازدید از سایت </p>
+        <p>
+
+                <a href="{{ uni.get_absolute_url }}">اطلاعات بیشتر</a>
+
+        </p>
+        <hr>
+
+    {% endfor %}
+        {% include "pagination.html" with page=page_obj %}
+
+{% endblock %}

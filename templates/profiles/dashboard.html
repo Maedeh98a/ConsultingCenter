@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1> this is my dashboard
+{% for me in consultant_profile %}
+<p>{{ me.bachelor_major }}</p>
+
+{% endfor %}</h1>
+{% endblock %}

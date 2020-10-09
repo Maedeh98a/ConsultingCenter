@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method="post" action="">
+    {% csrf_token %}
+<table class="table">
+                        <tr>
+
+                                <td><label for="fname">نام</label><br></td>
+                                <td id="fname">{{form.first_name}}</td>
+                        </tr>
+
+                        <tr>
+
+                                <td><label for="lname">نام خانوداگی</label><br></td>
+                                <td id="lname">{{form.last_name}}</td>
+                        </tr>
+
+                        <tr>
+
+                                <td><label for="user">نام کاربری</label><br></td>
+                                <td id="user">{{form.username}}</td>
+                        </tr>
+
+                        <tr>
+                                <td><label for="pass1">رمز عبور</label><br></td>
+                                <td id="pass1">{{form.password1}}</td>
+
+                        </tr>
+
+                        <tr>
+
+                                <td><label for="pass2"> تکرار رمز عبور</label><br></td>
+                                <td id="pass2">{{form.password2}}</td>
+                        </tr>
+                        <tr>
+                                <td><label for="email">پست الکترونیکی</label><br></td>
+                                <td id="email">{{form.email}}</td>
+
+                        </tr>
+                        <tr>
+                                <td><label for="phone">تلفن همراه</label><br></td>
+                                <td id="phone">{{form.phone}}</td>
+
+                        </tr>
+                        <tr>
+                                <td><label for="b_major">رشته کارشناسی</label><br></td>
+                                <td id="b_major">{{form.bachelor_major}}</td>
+
+                        </tr>
+
+                        <tr>
+                                <td><label for="code">کد ملی</label><br></td>
+                                <td id="code">{{form.identity_code}}</td>
+
+                        </tr>
+
+                        <tr>
+                                <td><label for="uni">دانشگاه ها</label><br></td>
+                                <td id="uni">{{form.universities}}</td>
+
+                        </tr>
+
+                        <tr>
+                                <td><label for="master">گرایش ارشد</label><br></td>
+                                <td id="master">{{form.master_tendency}}</td>
+
+                        </tr>
+
+
+                    <tr>
+                                <td><label for="phd">گرایش دکتری</label><br></td>
+                                <td id="phd">{{form.phd_tendency}}</td>
+
+                        </tr>
+
+
+
+                </table>
+                        <input name="submit" type="submit" value="ایجاد کاربر جدید">
+
+</form>
+
+{% endblock %}

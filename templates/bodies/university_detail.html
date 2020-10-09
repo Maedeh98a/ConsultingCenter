@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<img src="{{ object.photo.url }}" height="300" width="400">
+<p>{{ object.university_name }}</p>
+<p>{{ object.phone }}</p>
+<p>{{ object.address }}</p>
+<p>{{ object.about_university }}</p>
+<p>{{ object.university_city }}</p>
+{% endblock %}

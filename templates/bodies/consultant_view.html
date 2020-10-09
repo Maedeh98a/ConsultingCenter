@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+
+        {% for person in consultant_object %}
+        {% if person.user.username != None %}
+        <h2>{{ person.user }}</h2>
+        <p class="title">{{ person.universities.university_name }}</p>
+        <p>{{ person.user.email }}</p>
+        <p><a href="{{ person.get_absolute_url }}">جزئیات</a></p>
+          {% endif %}
+        <hr>
+          <hr>
+          <hr>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
